@@ -6,6 +6,8 @@
 
 ### Check whether a given LV2 plugin is up to the specification
 
+[![builds.sr.ht status](https://builds.open-music-kontrollers.ch/~hp/lv2lint/.svg)](https://builds.open-music-kontrollers.ch/~hp/lv2lint/?)
+
 An LV2 lint-like tool that checks whether a given plugin and its UI(s) match up
 with the provided metadata and adhere to well-known best practices.
 

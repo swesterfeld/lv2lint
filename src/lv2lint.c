@@ -2376,6 +2376,13 @@ main(int argc, char **argv)
 						{
 							const LilvPort *port = lilv_plugin_get_port_by_index(app.plugin, p);
 
+							LilvNode *minsize = lilv_port_get(app.plugin, port, NODE(&app, RESIZE_PORT__minimumSize));
+							if(minsize)
+							{
+								//FIXME no something with it
+								lilv_node_free(minsize);
+							}
+
 							port_t *tar = &ports[p];
 							tar->seq.atom.type = ATOM__Sequence;
 							if(lilv_port_is_a(app.plugin, port, NODE(&app, CORE__InputPort)))
