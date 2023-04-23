@@ -34,7 +34,7 @@ static int   (*__sem_wait)(sem_t *) = NULL;
 static int   (*__sem_timedwait)(sem_t *, const struct timespec *) = NULL;
 
 static unsigned (*__sleep)(unsigned) = NULL;
-static int   (*__usleep)(useconds_t) = NULL;
+static int   (*__usleep)(unsigned) = NULL;
 static int   (*__nanosleep)(const struct timespec *, struct timespec *) = NULL;
 static int   (*__clock_nanosleep)(clockid_t, int, const struct timespec *,
 																	struct timespec *) = NULL;
@@ -239,7 +239,7 @@ sleep(unsigned secs)
 }
 
 int
-usleep(useconds_t usecs)
+usleep(unsigned usecs)
 {
 	_mask(SHIFT_usleep);
 
