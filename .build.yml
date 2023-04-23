@@ -10,6 +10,7 @@ packages:
   - curl-dev
   - elfutils-dev
   - libx11-dev
+  - linux-headers
 tasks:
   - setup: |
       cd lv2lint
