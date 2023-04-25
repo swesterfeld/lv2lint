@@ -45,8 +45,7 @@ m_dep = cc.find_library('m')
 rt_dep = cc.find_library('rt')
 dl_dep = cc.find_library('dl')
 lv2_dep = dependency('lv2', version : '>=1.18.0')
-lilv_dep = dependency('lilv-0', version : '>=0.24.0',
-	static : meson.is_cross_build() and false) #FIXME
+lilv_dep = dependency('lilv-0', version : '>=0.24.0')
 curl_dep = dependency('libcurl', required: online_tests)
 elf_dep = dependency('libelf', required: elf_tests)
 x11_dep = dependency('x11', version : '>=1.6.0', required : x11_tests)
