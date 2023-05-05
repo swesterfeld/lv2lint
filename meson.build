@@ -29,6 +29,7 @@ x11_tests = get_option('x11-tests')
 reuse = find_program('reuse', required : false)
 
 version = get_option('version')
+build_tests = get_option('build-tests')
 
 prefix= get_option('prefix')
 libdir= get_option('libdir')
@@ -133,9 +134,11 @@ configure_file(
   install : true,
   install_dir : 'bin')
 
-if reuse.found()
-  test('REUSE', reuse, args : [
-    '--root', meson.current_source_dir(),
-    'lint'
-  ])
+if build_tests
+  if reuse.found()
+    test('REUSE', reuse, args : [
+      '--root', meson.current_source_dir(),
+      'lint'
+    ])
+  endif
 endif
