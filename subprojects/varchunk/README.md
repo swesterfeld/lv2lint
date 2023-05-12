@@ -6,6 +6,8 @@
 
 ## Ringbuffer optimized for realtime event handling
 
+[![builds.sr.ht status](https://builds.open-music-kontrollers.ch/~hp/varchunk/.svg)](https://builds.open-music-kontrollers.ch/~hp/varchunk/?)
+
 ### Properties
 
 * Is realtime-safe
@@ -15,13 +17,9 @@
 * Supports zero copy operation
 * Uses a simplistic API
 
-### Build Status
-
-[![build status](https://gitlab.com/OpenMusicKontrollers/varchunk/badges/master/build.svg)](https://gitlab.com/OpenMusicKontrollers/varchunk/commits/master)
-
 ### Build / test
 
-	git clone https://git.open-music-kontrollers.ch/lad/varchunk
+	git clone https://git.open-music-kontrollers.ch/~hp/varchunk
 	cd varchunk
 	meson build
 	cd build
@@ -104,7 +102,3 @@
 		return 0;
 	}
 
-### License
-
-SPDX-FileCopyrightText: Hanspeter Portner <dev@open-music-kontrollers.ch>
-SPDX-License-Identifier: Artistic-2.0
