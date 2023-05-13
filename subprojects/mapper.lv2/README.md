@@ -6,6 +6,8 @@
 
 ## Concurrent lock-free implementation of the LV2 URID extension
 
+[![builds.sr.ht status](https://builds.open-music-kontrollers.ch/~hp/mapper.lv2/.svg)](https://builds.open-music-kontrollers.ch/~hp/mapper.lv2/?)
+
 ### Properties
 
 * Is lock-free
@@ -18,13 +20,9 @@
 	* Is wait-free
 	* Is rt-safe
 
-### Build Status
-
-[![build status](https://gitlab.com/OpenMusicKontrollers/mapper.lv2/badges/master/build.svg)](https://gitlab.com/OpenMusicKontrollers/mapper.lv2/commits/master)
-
 ### Build / test
 
-	git clone https://git.open-music-kontrollers.ch/lv2/mapper.lv2
+	git clone https://git.open-music-kontrollers.ch/~hp/mapper.lv2
 	cd mapper.lv2
 	meson build
 	cd build
@@ -38,7 +36,3 @@
 * <https://en.wikipedia.org/wiki/Linear_probing>
 * <https://en.wikipedia.org/wiki/MurmurHash#MurmurHash3>
 
-### License
-
-SPDX-FileCopyrightText: Hanspeter Portner <dev@open-music-kontrollers.ch>
-SPDX-License-Identifier: Artistic-2.0
