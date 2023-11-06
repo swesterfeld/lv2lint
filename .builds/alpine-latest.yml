@@ -1,50 +1,58 @@
 # SPDX-FileCopyrightText: Hanspeter Portner <dev@open-music-kontrollers.ch>
 # SPDX-License-Identifier: CC0-1.0
-
 ---
-
 image: alpine/latest
-
 packages:
-  - reuse
-  - meson
-  - musl-dev
-  - lv2-dev
-  - lilv-dev
-  - curl-dev
-  - elfutils-dev
-  - libx11-dev
-  - linux-headers
-
+- meson
+- clang16-analyzer
+- llvm16
+- valgrind
+- lv2-dev
+- serd-dev
+- sord-dev
+- sratom-dev
+- cairo-dev
+- reuse
+- hut
+- jq
+- lilv-dev
+- curl-dev
+- elfutils-dev
+- libx11-dev
 environment:
   project: lv2lint
-
+secrets:
+- 0545580c-42ac-4700-b322-4e9df924eb07
+- 5fe806cd-3af4-4588-9898-8115d9262144
+- d6d10b2a-542a-4b45-b1be-6ef30a8ab558
+- 3de1773e-3503-46f5-8ab4-5212026517f4
+- 8c1363a3-86c2-46e5-9b52-79db433fa884
+sources:
+- https://git.open-music-kontrollers.ch/~hp/ci
 tasks:
-  - setup: |
-      cd "${project}"
-      meson setup build \
-        -Dbuildtype=release \
-        -Dprefer_static=true \
-        -Dprefix="/tmp/${project}" \
-        -Delf-tests=enabled \
-        -Donline-tests=enabled \
-        -Dx11-tests=enabled
-  - build: |
-      cd "${project}"
-      ninja -C build install
-  - test: |
-      cd "${project}"
-      ninja -C build test
-  - pack: |
-      cd /tmp
-      tar -czf artifacts.tar.gz "${project}"
-
-artifacts:
-  - /tmp/artifacts.tar.gz
-
+- gcc: |-
+    . ~/ci/activate
+    ci-meson gcc setup
+    ci-meson gcc build
+    ci-meson gcc test
+- clang: |-
+    . ~/ci/activate
+    ci-meson clang setup
+    ci-meson clang build
+    ci-meson clang test
+- analyzer: |-
+    . ~/ci/activate
+    ci-meson analyzer setup
+    ci-meson analyzer build
+    ci-meson analyzer test
+- sign: |-
+    . ~/ci/activate
+    if ! ci-istag; then
+      complete-build
+    fi
+    ci-archivesign
 triggers:
-  - action: email
-    condition: failure
-    to: "<dev@open-music-kontrollers.ch>"
-
+- action: email
+  condition: failure
+  to: <dev@open-music-kontrollers.ch>
 ...
