@@ -4,8 +4,8 @@
 image: alpine/latest
 packages:
 - meson
-- clang16-analyzer
-- llvm16
+- clang17-analyzer
+- llvm17
 - valgrind
 - lv2-dev
 - serd-dev
