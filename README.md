@@ -110,3 +110,9 @@ E.g. to skip tests about extension data only on the ui:
 
 	lv2lint -I ${MY_BUNDLE_DIR} -u urn:example:myplug#ui -t '*extension*data*' urn:example:myplug#mono
 
+
+### Issues/Patches
+
+Please report issues to [https://todo.open-music-kontrollers.ch/~hp/issues](https://todo.open-music-kontrollers.ch/~hp/issues)
+
+Please submit patches to [https://lists.open-music-kontrollers.ch/~hp/patches](https://lists.open-music-kontrollers.ch/~hp/patches)
